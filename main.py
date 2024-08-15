@@ -8,14 +8,15 @@ def hello():
     content = file.read()
     file.close()
     return content
+#blahblahohhf
 
 def i_anden(i):
     return i**2
 
-@app.route("/hej/<a>/<b>/<c>")
+@app.route("/<a>/<b>/<c>")
 def hello_navn(a, b, c):
-    svar = a, b, c = int(a), int(b), int(c)
-    
-    return svar
+    svar = int(a), int(b), int(c)
 
-#app.run(port=3000)
+    return str(svar)
+
+app.run(port=3000)

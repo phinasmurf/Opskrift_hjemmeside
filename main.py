@@ -15,8 +15,17 @@ def i_anden(i):
 
 @app.route("/<a>/<b>/<c>")
 def hello_navn(a, b, c):
-    svar = int(a), int(b), int(c)
 
-    return str(svar)
+    try:
+        svar = int(a), int(b), int(c)
+        division = int(a) / int(b) / int(c)
+
+    except ValueError as fejl:
+        return "der er en valueerror: " + fejl.args[0]
+
+    except ZeroDivisionError:
+        return "vi ka ikke dividere med nul"
+
+    return f"{svar} divideret sammen er lig {division}"
 
 app.run(port=3000)
